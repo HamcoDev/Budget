@@ -2,45 +2,67 @@
   "categories": {
     "Travel": {
       "Petrol": {
-        "amount": "44"
+        "ref": 1
       },
       "Public Transport": {
-        "amount": "12",
         "Bus": {
-          "amount": "2"
+          "ref": 2
         },
         "Train": {
-          "amount": "4"
+          "ref": 3
         }
       }
     },
     "House": {
-      "amount": "120",
-      "obsolete": "false"
+      "Council Tax": {
+        "ref": 4
+      },
+      "Utilities": {
+        "Gas": {
+          "ref": 5
+        },
+        "Electricity": {
+          "ref": 6
+        }
+      }
     },
     "Clothes": {
-      "amount": "33",
-      "obsolete": "false"
+      "Work": {
+        "ref": 7
+      },
+      "Non-Work": {
+        "ref": 8
+      }
     }
   },
   "users": {
     "Sam": {
       "username": "Sammy",
       "password": "***"
+    },
+    "Jason": {
+      "username": "JML",
+      "password": "****"
     }
   },
   "entries": {
-    "4545656": {
-      "categoryId": "BusId12",
-      "amount": "2",
-            "datetime": "20150829",
-            "user": "sh"
-    },
     "4541677": {
-      "categoryId": "BusId12",
+      "categoryRef": "1",
       "amount": "2",
-            "datetime": "20150829",
-            "user": "sh"
+      "datetime": "20150829",
+      "user": "sh"
+    },
+    "4545656": {
+      "categoryRef": "1",
+      "amount": "2",
+      "datetime": "20150829",
+      "user": "sh"
+    },
+    "7880044": {
+      "categoryRef": "4",
+      "amount": "2",
+      "datetime": "20150829",
+      "user": "sh"
     }
   }
 }

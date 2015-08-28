@@ -1,6 +1,18 @@
 var app = angular.module('budget', ['ionic', 'firebase']);
 
+var baseUrl = "https://luminous-torch-9880.firebaseio.com";
+
+
 app.controller('BudgetCtrl', BudgetCtrl);
+app.config(function($stateProvider, $urlRouterProvider) {
+  
+  $urlRouterProvider.otherwise('/category')  
+  
+  $stateProvider.state('category', {
+    url: '/category?cat',
+    templateUrl: '../partials/categories.html'
+  })
+})
 
 BudgetCtrl.$inject = [
   "$scope",
@@ -11,13 +23,17 @@ function BudgetCtrl(
   $scope, 
   $firebaseArray
  ) {
-  var ref = new Firebase("https://luminous-torch-9880.firebaseio.com/categories");
+  var ref = new Firebase(baseUrl.concat("/categories"));
   
   // download the data into a local object
   $scope.categories = $firebaseArray(ref);
   
+  $scope.lastUrl = "";
+  
+    $scope.currentCat = "";
+  
   $scope.addAmount = function(categoryName, amount) {
-    var update = new Firebase("https://luminous-torch-9880.firebaseio.com");
+    var update = new Firebase(baseUrl);
     var categoryRef = update.child("categories");
   
   categoryRef.child(categoryName).update({
@@ -25,9 +41,31 @@ function BudgetCtrl(
     });  
   }
   
+    $scope.backPressed = function() {
+      $scope.lastUrl = "";
+  }
+  
   $scope.showSubCategories = function(categoryName) {
-    var ref = new Firebase("https://luminous-torch-9880.firebaseio.com/categories/Travel");
-    $scope.subCategories = $firebaseArray(ref);
+    
+    var urlString = "";    
+    if ($scope.lastUrl == "") {
+      urlString = baseUrl.concat("/categories/").concat(categoryName)
+    }
+    else {
+       urlString = $scope.lastUrl.concat("/").concat(categoryName);
+    }
+    
+    var ref = new Firebase(urlString);
+    $scope.categories = $firebaseArray(ref);
+    
+    $scope.lastUrl = urlString;
+    $scope.currentCat = categoryName;
+    
   } 
+  
+  $scope.getTotal = function(category) {
+    
+    
+  }
 }
 

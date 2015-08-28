@@ -1,0 +1,17 @@
+<ion-view>
+  <ion-nav-title>
+    {{currentCat}}
+  </ion-nav-title>
+  <ion-content>
+    <!-- our list and list items -->
+    <ion-list>
+      <ion-item ng-repeat="category in categories" ng-click="showSubCategories(category.$id)" ui-sref="category({cat:category.$id})">{{category.$id}}</ion-item>
+    </ion-list>
+    Enter amount:
+    <input type="text" ng-model="amount" name="amount" />
+    <select ng-options="category.$id for category in categories" ng-model="selected"></select>
+    <br/>
+    <br/>
+    <button class="button" ng-click="addAmount(selected.$id, amount)">Add</button>
+  </ion-content>
+</ion-view>
