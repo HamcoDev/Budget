@@ -1,0 +1,46 @@
+{
+  "categories": {
+    "Travel": {
+      "Petrol": {
+        "amount": "44"
+      },
+      "Public Transport": {
+        "amount": "12",
+        "Bus": {
+          "amount": "2"
+        },
+        "Train": {
+          "amount": "4"
+        }
+      }
+    },
+    "House": {
+      "amount": "120",
+      "obsolete": "false"
+    },
+    "Clothes": {
+      "amount": "33",
+      "obsolete": "false"
+    }
+  },
+  "users": {
+    "Sam": {
+      "username": "Sammy",
+      "password": "***"
+    }
+  },
+  "entries": {
+    "4545656": {
+      "categoryId": "BusId12",
+      "amount": "2",
+            "datetime": "20150829",
+            "user": "sh"
+    },
+    "4541677": {
+      "categoryId": "BusId12",
+      "amount": "2",
+            "datetime": "20150829",
+            "user": "sh"
+    }
+  }
+}
